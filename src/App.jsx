@@ -93,8 +93,8 @@ function App() {
   const [grid, setGrid] = useState(createInitialGrid());
 
   // Reset grid before and after using bfs/dfs/a*/dijkstra
-  const resetGridState = () => {
-    const newGrid = grid.map(row =>
+  const resetGridState = (customGrid = grid) => {
+    const newGrid = customGrid.map(row =>
       row.map(cell => ({
         ...cell,
         isVisited: false,
@@ -104,6 +104,7 @@ function App() {
     setGrid(newGrid);
     return newGrid;
   };
+  
   // const handleFullReset = () => {
   //   const freshGrid = createInitialGrid();
   //   setGrid(freshGrid);
@@ -228,28 +229,53 @@ function App() {
   //   }, 15 * visitedNodes.length);
   // };
   
-  const handleCellClick = (row, col) => {
-    if (isAnimating) return; // Prevent user actions while animating
+  // const handleCellClick = (row, col) => {
+  //   if (isAnimating) return; // Prevent user actions while animating
 
-    const newGrid = grid.map(row => row.map(cell => ({ ...cell })));
-    // newGrid[node.row][node.col].isVisited = true;
+  //   const newGrid = grid.map(row => row.map(cell => ({ ...cell })));
+  //   // newGrid[node.row][node.col].isVisited = true;
     
+  
+  //   if (mode === 'wall') {
+  //     if (!newGrid[row][col].isStart && !newGrid[row][col].isEnd) {
+  //       newGrid[row][col].isWall = !newGrid[row][col].isWall;
+  //     }
+  //   }
+  //    else if (mode === 'start') {
+  //     newGrid.forEach(row => row.forEach(cell => (cell.isStart = false)));
+  //     newGrid[row][col].isStart = true;
+  //   }else if (mode === 'end') {
+  //     newGrid.forEach(row => row.forEach(cell => (cell.isEnd = false)));
+  //     newGrid[row][col].isEnd = true;
+  //   }
+  
+  //   setGrid(newGrid);
+  // };
+  const handleCellClick = (row, col) => {
+    if (isAnimating) return;
+    const cleanedGrid = resetGridState(grid); // Pass the current grid
+
+  
+    const newGrid = cleanedGrid.map(row => row.map(cell => ({ ...cell })));
   
     if (mode === 'wall') {
       if (!newGrid[row][col].isStart && !newGrid[row][col].isEnd) {
+        // Clear visited/path when wall is added/removed
+        newGrid[row][col].isVisited = false;
+        newGrid[row][col].isPath = false;
         newGrid[row][col].isWall = !newGrid[row][col].isWall;
       }
-    }
-     else if (mode === 'start') {
+    } else if (mode === 'start') {
       newGrid.forEach(row => row.forEach(cell => (cell.isStart = false)));
       newGrid[row][col].isStart = true;
-    }else if (mode === 'end') {
+    } else if (mode === 'end') {
       newGrid.forEach(row => row.forEach(cell => (cell.isEnd = false)));
       newGrid[row][col].isEnd = true;
     }
   
     setGrid(newGrid);
   };
+  
 
   // Mouse Drag
   const handleMouseDown = (row, col) => {
