@@ -54,7 +54,7 @@ function App() {
 
 
   //Grids
-  const rows = 20;
+  const rows = 17;
   const cols = 40;
 
   const createInitialGrid = () => {
