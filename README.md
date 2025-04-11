@@ -1,10 +1,10 @@
-# 🧭 Pathfinding Algorithm Visualizer
+#  Pathfinding Algorithm Visualizer
 
 This is a **React-based pathfinding algorithm visualizer** that demonstrates how various algorithms work in real-time. You can interactively place a **Start** node, **End** node, build **walls**, generate **random mazes**, and visualize paths using algorithms like **A\***, **Dijkstra's**, **BFS**, and **DFS**.
 
 ## ✨ Features
 
-- ✅ **Visualize Popular Algorithms**:
+-  **Visualize Popular Algorithms**:
   - A* (A-Star)
   - Dijkstra’s Algorithm
   - Breadth-First Search (BFS)
@@ -26,7 +26,7 @@ This is a **React-based pathfinding algorithm visualizer** that demonstrates how
 ### Prerequisites
 
 - Node.js (v14+)
-- npm or yarn
+- npm 
 
 ### Installation
 
@@ -36,7 +36,25 @@ This is a **React-based pathfinding algorithm visualizer** that demonstrates how
 
 2. Navigate into the project directory:
 
-```bash
-    cd pathfinding-visualizer```
+    ```bash
+    cd pathfinding-visualizer
 
 3. Install dependencies:
+   ```bash
+    npm install
+4. Start the development server:
+   ```bash
+    npm run dev
+5. Open http://localhost:5173 to view it in your browser.
+
+## 🎨 Tech Stack
+- Frontend: React (with Vite)
+- Language: JavaScript
+- Styling: CSS
+
+ ## 🙌 Inspiration
+
+This project was inspired by [Clement Mihailescu's Pathfinding Visualizer](https://github.com/clementmihailescu/Pathfinding-Visualizer).  
+Special thanks for the idea and inspiration!
+
+ 
