@@ -56,14 +56,14 @@ h1{
     background-color: red;
   }
   .cell-wall {
-    background-color: grey;/*this works*/
+    background-color: grey;
   }
 
   .cell-path {
     background-color: yellow;
   }
   .cell-visited {
-    background-color: #87cefa; /* light blue */
+    background-color: #87cefa; 
   }
   .grid {
     display: flex;
@@ -95,7 +95,7 @@ h1{
   }
   
   .node-visited {
-    background-color: #add8e6; /* light blue */
+    background-color: #add8e6; 
   }
   
   .node-path {

@@ -1,51 +1,42 @@
 import React from 'react';
 import './GuideModal.css';
 
-// const guideSteps = [
-//   "👋 Welcome to the Pathfinding Visualizer!",
-//   "🟢 Click on the grid to place a START node.",
-//   "🔴 Then, place the END node the same way.",
-//   "🧠 Use the control panel to choose an algorithm (BFS, DFS, A*, or Dijkstra).",
-//   "🧱 Click and drag on cells to create WALLS.",
-//   "▶️ Hit 'Visualize' to see the algorithm in action!",
-//   "🧹 Use 'Reset' to clear the board or 'Generate Maze' to add random walls!"
-// ];
 
 const guideSteps = [
   {
     id: 1,
     comment: "👋 Welcome to the Pathfinding Visualizer!",
-    image: "video.gif" // Example: A screenshot of the initial grid
+    image: "video.gif"
   },
   {
     id: 2,
     comment: "🟢 Click on the grid to place a START node.",
-    image: "start.gif" // Example: A screenshot showing the start node placement
+    image: "start.gif" 
   },
   {
     id: 3,
     comment: "🔴 Then, place the END node the same way.",
-    image: "end.gif" // Example: A screenshot showing the end node placement
+    image: "end.gif" 
   },
   {
     id: 4,
     comment: "🧠 Use the control panel to choose an algorithm (BFS, DFS, A*, or Dijkstra).",
-    image: "algo.gif" // Example: A screenshot of the algorithm dropdown
+    image: "algo.gif"
   },
   {
     id: 5,
     comment: "🧱 Click and drag on cells to create WALLS.",
-    image: "walls.gif" // Example: A screenshot showing wall creation
+    image: "walls.gif" 
   },
   {
     id: 6,
     comment: "▶️ Hit 'Visualize' to see the algorithm in action!",
-    image: "visualize.gif" // Example: A screenshot of the algorithm running
+    image: "visualize.gif" 
   },
   {
     id: 7,
     comment: "🧹 Use 'Reset' to clear the board or 'Generate Maze' to add random walls!",
-    image: "reset.gif" // Example: A screenshot of the reset/maze buttons
+    image: "reset.gif" 
   }
 ];
 
@@ -67,7 +58,7 @@ const GuideModal = ({ guideIndex, setGuideIndex, setShowGuide }) => {
 
   const handleSkip = () => {
     setShowGuide(false);
-    setGuideIndex(0); // Optional reset
+    setGuideIndex(0); 
   };
 
   const handleComplete = () => {

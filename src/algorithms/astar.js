@@ -44,7 +44,7 @@ export function astar(grid, startNode, endNode) {
       }
     }
   
-    return { visitedOrder, path: [] }; // No path found
+    return { visitedOrder, path: [] };
   }
   
   function heuristic(a, b) {
