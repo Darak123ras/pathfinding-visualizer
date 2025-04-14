@@ -65,7 +65,18 @@
       font-size: 1.2rem;
     }
     .guide-overlay .guide-box img{
-      width: 50%;
+      width: 80%;
       height: 50%;
+    }
+    .guide-buttons {
+      width: 100%;
+
+    }
+    .guide-buttons button{
+      width: 60px;
+      padding: 0px;
+      gap: 10px;
+      margin: 5px;
+      font-size: 0.7rem;
     }
   }
