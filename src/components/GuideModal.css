@@ -56,3 +56,16 @@
     background-color: #5d2c82;
   }
   
+  @media (max-width: 760px){
+    .guide-overlay .guide-box{
+      width: 50%;
+      height: 50%;
+    }
+    .guide-overlay .guide-box  p{
+      font-size: 1.2rem;
+    }
+    .guide-overlay .guide-box img{
+      width: 50%;
+      height: 50%;
+    }
+  }

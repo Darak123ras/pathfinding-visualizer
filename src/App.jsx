@@ -40,25 +40,32 @@ function App() {
 
   const [selectedAlgo, setSelectedAlgo] = useState('bfs');
 
+  const [rows, setRows] = useState(17);
+  const [cols, setCols] = useState(40);
+
   useEffect(() => {
-    // Clear only visited and path, NOT walls, start or end
-    const clearedGrid = grid.map(row =>
-      row.map(cell => ({
-        ...cell,
-        isVisited: false,
-        isPath: false,
-      }))
-    );
-    setGrid(clearedGrid);
-  }, [selectedAlgo]);
+    const updateGridSize = () => {
+      const width = window.innerWidth;
 
+      if (width < 768) {
+        setCols(15);
+        setRows(20);
+      } else if (width < 1024) {
+        setCols(25);
+        setRows(20);
+      } else {
+        setCols(40);
+        setRows(17);
+      }
+    };
 
-  //Grids
-  const rows = 17;
-  const cols = 40;
+    updateGridSize(); 
+    window.addEventListener('resize', updateGridSize);
+    return () => window.removeEventListener('resize', updateGridSize);
+  }, []);
+  const [grid, setGrid] = useState([]);
 
   const createInitialGrid = () => {
-    
     const newGrid = [];
     for (let row = 0; row < rows; row++) {
       const currentRow = [];
@@ -77,6 +84,23 @@ function App() {
     }
     return newGrid;
   };
+  useEffect(() => {
+    setGrid(createInitialGrid());
+  }, [rows, cols]);
+
+
+  useEffect(() => {
+    // Clear only visited and path, NOT walls, start or end
+    const clearedGrid = grid.map(row =>
+      row.map(cell => ({
+        ...cell,
+        isVisited: false,
+        isPath: false,
+      }))
+    );
+    setGrid(clearedGrid);
+  }, [selectedAlgo]);
+
   
 
   
@@ -90,7 +114,6 @@ function App() {
     }
   };
 
-  const [grid, setGrid] = useState(createInitialGrid());
 
   // Reset grid before and after using bfs/dfs/a*/dijkstra
   const resetGridState = (customGrid = grid) => {

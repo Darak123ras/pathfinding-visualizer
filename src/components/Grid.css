@@ -4,3 +4,15 @@
     border-radius: 6px;
     /* padding: 4px;  */
 }
+
+@media (max-width: 1024px){
+    .grid{
+        width: 539px;
+    }
+}
+
+@media (max-width: 765px){
+    .grid{
+        width: 324px;
+    }
+}
