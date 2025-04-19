@@ -1,18 +1,18 @@
 .grid{
-    width: 861px;
-    box-shadow: 0 0 10px rgba(25, 95, 81, 0.8);
-    border-radius: 6px;
-    /* padding: 4px;  */
+  width: 861px;
+  box-shadow: 0 0 10px rgba(25, 95, 81, 0.8);
+  border-radius: 6px;
+  /* padding: 4px;  */
 }
 
 @media (max-width: 1024px){
-    .grid{
-        width: 539px;
-    }
+  .grid{
+      width: 539px;
+  }
 }
 
 @media (max-width: 765px){
-    .grid{
-        width: 324px;
-    }
+  .grid{
+      width: 324px;
+  }
 }

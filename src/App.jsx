@@ -17,7 +17,7 @@ function App() {
   const [speed, setSpeed] = useState(1); // Default 1x speed
   const [isAnimating, setIsAnimating] = useState(false);
   const [showGuide, setShowGuide] = useState(true);
-  const totalGuideSteps = 3;
+  const [notification, setNotification] = useState(null);
   const [guideIndex, setGuideIndex] = useState(0);
   const timeoutRefs = useRef([]);  // for clearing animation if needed
 
@@ -88,18 +88,18 @@ function App() {
     setGrid(createInitialGrid());
   }, [rows, cols]);
 
-
-  useEffect(() => {
-    // Clear only visited and path, NOT walls, start or end
-    const clearedGrid = grid.map(row =>
-      row.map(cell => ({
-        ...cell,
-        isVisited: false,
-        isPath: false,
-      }))
-    );
-    setGrid(clearedGrid);
-  }, [selectedAlgo]);
+// that's the answer: one problem solved
+  // useEffect(() => {
+  //   // Clear only visited and path, NOT walls, start or end
+  //   const clearedGrid = grid.map(row =>
+  //     row.map(cell => ({
+  //       ...cell,
+  //       isVisited: false,
+  //       isPath: false,
+  //     }))
+  //   );
+  //   setGrid(clearedGrid);
+  // }, [selectedAlgo]);
 
   
 
@@ -160,13 +160,17 @@ function App() {
     }else if(selectedAlgo==='dfs'){
       result=dfs(grid,start,end);
     }
-
+    
 
   
     if (result) {
       const { visitedOrder, path } = result;
       animateTraversal(visitedOrder, path);
+    }else{
+      setNotification("No path exists between nodes");
+      return;
     }
+    
   };
   
   const animateTraversal = (visitedNodes, pathNodes) => {
